@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>С Днем Рождения, мама!</title>
+    <title>С Днем Рождения, Мама!</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -11,11 +11,15 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: #f9f9f9;
+            overflow-x: hidden;
+        }
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            flex-direction: column;
+            padding: 20px;
+            min-height: 100vh;
         }
         .card {
             background-color: white;
@@ -25,6 +29,7 @@
             max-width: 400px;
             text-align: center;
             padding: 20px;
+            margin-bottom: 20px;
             opacity: 0;
             transform: translateY(-20px);
             animation: fadeIn 0.5s forwards;
@@ -56,25 +61,63 @@
             width: 100%;
             height: auto;
         }
+        .heart {
+            position: absolute;
+            color: red;
+            font-size: 24px;
+            animation: float 2s infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-30px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>С Днем Рождения, Мама!</h1>
-        <p>Ты — самый лучший человек в моей жизни!</p>
-        <div class="photo">
-            <img src="images/photo1.jpg" alt="Фото 1">
+    <div class="container">
+        <div class="card">
+            <h1>С Днем Рождения, Мама!</h1>
+            <p>Ты — самый лучший человек в моей жизни!</p>
+            <div class="photo">
+                <img src="images/IMG_0978.jpg" alt="Фото 1">
+            </div>
+            <div class="photo">
+                <img src="images/IMG_1001.jpg" alt="Фото 2">
+            </div>
+            <p>Желаю тебе счастья, здоровья и любви!</p>
         </div>
-        <div class="photo">
-            <img src="images/photo2.jpg" alt="Фото 2">
+
+        <!-- Дополнительный контент для прокрутки -->
+        <div class="card">
+            <h2>Почему я тебя люблю</h2>
+            <p>Ты всегда поддерживаешь меня в трудные времена.</p>
+            <p>Ты — мой лучший друг и советчик.</p>
+            <p>Твоя доброта и забота делают мир лучше.</p>
         </div>
-        <div class="photo">
-            <img src="images/photo3.jpg" alt="Фото 3">
+
+        <div class="card">
+            <h2>Пожелания</h2>
+            <p>Пусть каждый день будет наполнен радостью!</p>
+            <p>Желаю здоровья и счастья на многие года вперед!</p>
+            <p>Ты заслуживаешь только лучшего!</p>
         </div>
-        <div class="photo">
-            <img src="images/photo4.jpg" alt="Фото 4">
-        </div>
-        <p>Желаю тебе счастья, здоровья и любви!</p>
     </div>
+
+    <!-- Сердечки -->
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart" style="left: 30%; animation-delay: 0.5s;">❤️</div>
+    <div class="heart" style="left: 50%; animation-delay: 1s;">❤️</div>
+    <div class="heart" style="left: 70%; animation-delay: 1.5s;">❤️</div>
+    <div class="heart" style="left: 90%; animation-delay: 2s;">❤️</div>
 </body>
-</html>
+</html
