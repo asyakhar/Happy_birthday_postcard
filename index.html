@@ -80,9 +80,17 @@
                 opacity: 0;
             }
         }
+        .party-popper {
+            font-size: 48px; /* Размер смайлика */
+            position: absolute;
+            top: 20px; /* Положение сверху */
+            left: 50%; /* Центрирование по горизонтали */
+            transform: translateX(-50%); /* Центрирование по горизонтали */
+        }
     </style>
 </head>
 <body>
+    <div class="party-popper">🎉</div> <!-- Смайлик с хлопушкой -->
     <div class="container">
         <div class="card">
             <h1>С Днем Рождения, Мама!</h1>
@@ -91,87 +99,87 @@
                 <img src="images/IMG_0978.jpg" alt="Фото 1">
             </div>
             <p>Желаю тебе самых приятных путешествий!</p>
-              </div>
+        </div>
         
-            <div class="card">
+        <div class="card">
             <div class="photo">
                 <img src="images/IMG_1001.jpg" alt="Фото 2">
             </div>
             <p>Чтобы море было тебе по колено!</p>
-                 </div>
+        </div>
         
-                <div class="card">
+        <div class="card">
             <div class="photo">
                 <img src="images/IMG_1532.jpg" alt="Фото 3">
             </div>
             <p>Чтобы окружали тебя самые прекрасные цветы!</p>
-                      </div>
+        </div>
         
-                    <div class="card">
+        <div class="card">
             <div class="photo">
                 <img src="images/IMG_9950.jpg" alt="Фото 4">
             </div>
             <p>Чтобы вкусно и сытно кушала!</p>
         </div>
-  </div>
-        <!-- Дополнительный контент для прокрутки -->
-        <div class="card">
-            <h2>❤️Почему я тебя ценю❤️</h2>
-            <p>Ты всегда рядом, когда мне это нужно.</p>
-            <p>Твоя поддержка вдохновляет меня на новые свершения.</p>
-            <p>С тобой я чувствую себя счастливой и любимой.</p>
-        </div>
-
-        <div class="card">
-            <h2>❤️Мои искренние пожелания❤️</h2>
-                        <p>Пусть каждый миг будет полон счастья и улыбок!</p>
-            <p>Желаю тебе здоровья, удачи и исполнения всех мечт!</p>
-            <p>Ты заслуживаешь только самых светлых моментов в жизни!</p>
-            <p>С любовью, от Ности</p>
-        </div>
+    </div>
+    <!-- Дополнительный контент для прокрутки -->
+    <div class="card">
+                <h2>❤️Почему я тебя ценю</h2>
+        <p>Ты всегда рядом, когда мне это нужно.</p>
+        <p>Твоя поддержка вдохновляет меня на новые свершения.</p>
+        <p>С тобой я чувствую себя счастливой и любимой.</p>
     </div>
 
-    <!-- Сердечки -->
-    <script>
-        const createHeart = () => {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            document.body.appendChild(heart);
+    <div class="card">
+        <h2>❤️Мои искренние пожелания</h2>
+        <p>Пусть каждый миг будет полон счастья и улыбок!</p>
+        <p>Желаю тебе здоровья, удачи и исполнения всех мечт!</p>
+        <p>Ты заслуживаешь только самых светлых моментов в жизни!</p>
+        <p>С любовью, от Ности</p>
+    </div>
+</div>
 
-            // Устанавливаем случайные позиции для сердечка
-            heart.style.left = Math.random() * 100 + 'vw'; // Позиция по горизонтали
-            heart.style.animationDuration = Math.random() * 2 + 2 + 's'; // Случайная продолжительность анимации
+<!-- Сердечки -->
+<script>
+    const createHeart = () => {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        document.body.appendChild(heart);
 
-            // Удаляем сердечко после завершения анимации
-            heart.addEventListener('animationend', () => {
-                heart.remove();
-            });
-        };
+        // Устанавливаем случайные позиции для сердечка
+        heart.style.left = Math.random() * 100 + 'vw'; // Позиция по горизонтали
+        heart.style.animationDuration = Math.random() * 2 + 2 + 's'; // Случайная продолжительность анимации
 
-        // Создаем сердечки каждые 500 мс
-        setInterval(createHeart, 500);
+        // Удаляем сердечко после завершения анимации
+        heart.addEventListener('animationend', () => {
+            heart.remove();
+        });
+    };
 
-        // Анимация при прокрутке
-        const cards = document.querySelectorAll('.card');
+    // Создаем сердечки каждые 500 мс
+    setInterval(createHeart, 500);
 
-        const showCardsOnScroll = () => {
-            const triggerBottom = window.innerHeight / 5 * 4; // Позиция триггера
+    // Анимация при прокрутке
+    const cards = document.querySelectorAll('.card');
 
-            cards.forEach(card => {
-                const cardTop = card.getBoundingClientRect().top;
+    const showCardsOnScroll = () => {
+        const triggerBottom = window.innerHeight / 5 * 4; // Позиция триггера
 
-                if (cardTop < triggerBottom) {
-                    card.classList.add('visible');
-                } else {
-                    card.classList.remove('visible');
-                }
-            });
-        };
+        cards.forEach(card => {
+            const cardTop = card.getBoundingClientRect().top;
 
-        window.addEventListener('scroll', showCardsOnScroll);
-        showCardsOnScroll(); // Запускаем функцию при загрузке страницы
-    </script>
+            if (cardTop < triggerBottom) {
+                card.classList.add('visible');
+            } else {
+                card.classList.remove('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', showCardsOnScroll);
+    showCardsOnScroll(); // Запускаем функцию при загрузке страницы
+</script>
 </body>
 </html>
 
