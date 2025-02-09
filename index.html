@@ -12,6 +12,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #EEFFFE;
             overflow-x: hidden;
+            position: relative; /* Для позиционирования сердечек */
         }
         .container {
             display: flex;
@@ -91,7 +92,7 @@
             <div class="photo">
                 <img src="images/IMG_0978.jpg" alt="Фото 1">
             </div>
-            <p>Желаю тебе самых прияных путешествий!</p>
+            <p>Желаю тебе самых приятных путешествий!</p>
             <div class="photo">
                 <img src="images/IMG_1001.jpg" alt="Фото 2">
             </div>
@@ -106,27 +107,44 @@
             <p>Чтобы вкусно и сытно кушала!</p>
         </div>
 
-       <!-- Дополнительный контент для прокрутки -->
-<div class="card">
-    <h2>Почему я тебя ценю</h2>
-    <p>Ты всегда рядом, когда мне это нужно.</p>
-    <p>Твоя поддержка вдохновляет меня на новые свершения.</p>
-    <p>С тобой я чувствую себя счастливой и любимой.</p>
-</div>
+        <!-- Дополнительный контент для прокрутки -->
+        <div class="card">
+            <h2>Почему я тебя ценю</h2>
+            <p>Ты всегда рядом, когда мне это нужно.</p>
+            <p>Твоя поддержка вдохновляет меня на новые свершения.</p>
+            <p>С тобой я чувствую себя счастливой и любимой.</p>
+        </div>
 
-<div class="card">
-    <h2>Мои искренние пожелания</h2>
-    <p>Пусть каждый миг будет полон счастья и улыбок!</p>
-    <p>Желаю тебе здоровья, удачи и исполнения всех мечт!</p>
-    <p>Ты заслуживаешь только самых светлых моментов в жизни!</p>
-    <p>С любовью, от Ности</p>
-</div>
-    
+        <div class="card">
+            <h2>Мои искренние пожелания</h2>
+            <p>Пусть каждый миг будет полон счастья и улыбок!</p>
+            <p>Желаю тебе здоровья, удачи и исполнения всех мечт!</p>
+            <p>Ты заслуживаешь только самых светлых моментов в жизни!</p>
+                        <p>С любовью, от Ности</p>
+        </div>
+    </div>
+
     <!-- Сердечки -->
-    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
-    <div class="heart" style="left: 30%; animation-delay: 0.5s;">❤️</div>
-    <div class="heart" style="left: 50%; animation-delay: 1s;">❤️</div>
-    <div class="heart" style="left: 70%; animation-delay: 1.5s;">❤️</div>
-    <div class="heart" style="left: 90%; animation-delay: 2s;">❤️</div>
+    <script>
+        const createHeart = () => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            document.body.appendChild(heart);
+
+            // Устанавливаем случайные позиции для сердечка
+            heart.style.left = Math.random() * 100 + 'vw'; // Позиция по горизонтали
+            heart.style.animationDuration = Math.random() * 2 + 2 + 's'; // Случайная продолжительность анимации
+
+            // Удаляем сердечко после завершения анимации
+            heart.addEventListener('animationend', () => {
+                heart.remove();
+            });
+        };
+
+        // Создаем сердечки каждые 500 мс
+        setInterval(createHeart, 500);
+    </script>
 </body>
 </html>
+
