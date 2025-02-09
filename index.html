@@ -32,14 +32,12 @@
             padding: 20px;
             margin-bottom: 20px;
             opacity: 0;
-            transform: translateY(-20px);
-            animation: fadeIn 0.5s forwards;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
         }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         h1 {
             font-size: 24px;
@@ -117,10 +115,10 @@
 
         <div class="card">
             <h2>Мои искренние пожелания</h2>
-            <p>Пусть каждый миг будет полон счастья и улыбок!</p>
+                        <p>Пусть каждый миг будет полон счастья и улыбок!</p>
             <p>Желаю тебе здоровья, удачи и исполнения всех мечт!</p>
             <p>Ты заслуживаешь только самых светлых моментов в жизни!</p>
-                        <p>С любовью, от Ности</p>
+            <p>С любовью, от Ности</p>
         </div>
     </div>
 
@@ -144,6 +142,26 @@
 
         // Создаем сердечки каждые 500 мс
         setInterval(createHeart, 500);
+
+        // Анимация при прокрутке
+        const cards = document.querySelectorAll('.card');
+
+        const showCardsOnScroll = () => {
+            const triggerBottom = window.innerHeight / 5 * 4; // Позиция триггера
+
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+
+                if (cardTop < triggerBottom) {
+                    card.classList.add('visible');
+                } else {
+                    card.classList.remove('visible');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', showCardsOnScroll);
+        showCardsOnScroll(); // Запускаем функцию при загрузке страницы
     </script>
 </body>
 </html>
